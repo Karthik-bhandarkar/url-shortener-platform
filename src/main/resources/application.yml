@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: url-shortener-platform
+
+server:
+  port: 8080
+  # Every endpoint will be prefixed with /api/v1
+  # Example: /api/v1/health, /api/v1/urls
+  # WHY: API versioning from day 1 — changing this later breaks clients
+  servlet:
+    context-path: /api/v1
+
+# Actuator endpoints — infrastructure health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+
+# App info — shows at /actuator/info
+info:
+  app:
+    name: URL Shortener Platform
+    version: 1.0.0
+    description: Distributed URL shortening service
+
+# Logging configuration
+# Our code: DEBUG level (see all our logs)
+# Spring internals: INFO level (reduce noise)
+logging:
+  level:
+    com.urlshortener: DEBUG
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
