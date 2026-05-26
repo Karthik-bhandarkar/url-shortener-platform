@@ -6,8 +6,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Spring Boot Parent: gives us dependency management for free -->
-    <!-- We don't need to specify versions for most dependencies -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,7 +13,6 @@
         <relativePath/>
     </parent>
 
-    <!-- Project Identity -->
     <groupId>com.urlshortener</groupId>
     <artifactId>url-shortener-platform</artifactId>
     <version>1.0.0</version>
@@ -24,7 +21,6 @@
     <packaging>jar</packaging>
 
     <properties>
-        <!-- Force Java 17 -->
         <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -33,37 +29,27 @@
 
     <dependencies>
 
-        <!-- SPRING WEB: Gives us @RestController, @GetMapping etc. -->
-        <!-- Includes embedded Tomcat server — no separate server needed -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- ACTUATOR: Gives us /actuator/health endpoint for free -->
-        <!-- In production: Kubernetes uses this for liveness probes -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- VALIDATION: @NotBlank, @Size, @Pattern annotations -->
-        <!-- Implementation: Hibernate Validator (JSR-380 spec) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!-- LOMBOK: Reduces boilerplate — @Slf4j, @Getter, @Builder etc. -->
-        <!-- Compile-time only — generates code before compilation -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- DEVTOOLS: Auto-restart on file change during development -->
-        <!-- Automatically disabled in production builds -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -71,7 +57,6 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- TEST: JUnit 5 + Mockito + MockMvc — all bundled -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -82,13 +67,10 @@
 
     <build>
         <plugins>
-            <!-- Spring Boot Maven Plugin: packages app as executable JAR -->
-            <!-- 'java -jar app.jar' runs because of this plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <!-- Lombok is compile-time only, exclude from final JAR -->
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
