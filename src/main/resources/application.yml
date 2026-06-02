@@ -3,7 +3,7 @@ spring:
     name: url-shortener-platform
 
 server:
-  port: 8080
+  port: 8081
   # Every endpoint will be prefixed with /api/v1
   # Example: /api/v1/health, /api/v1/urls
   # WHY: API versioning from day 1 — changing this later breaks clients
