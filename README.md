@@ -22,7 +22,7 @@
 
 | Method | Endpoint | Description | Status |
 |---|---|---|---|
-| GET | /api/v1/health | Liveness check | ✅ Live |
+| GET | /api/v1/health | Liveness check | ✅ Live(stub) |
 | POST | /api/v1/urls | Shorten a URL | ✅ Live (stub) |
 | GET | /api/v1/urls/{shortCode} | Get URL details | ✅ Live (stub) |
 | DELETE | /api/v1/urls/{shortCode} | Delete a URL | ✅ Live (stub) |
