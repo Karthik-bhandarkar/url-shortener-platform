@@ -10,7 +10,7 @@
 ## Tech Stack
 | Layer | Technology |
 |---|---|
-| Language | Java 17 |
+| Language | Java 17+ |
 | Framework | Spring Boot 3.2 |
 | Database | PostgreSQL (Phase 2) |
 | Cache | Redis (Phase 4) |
